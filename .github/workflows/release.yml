@@ -1,0 +1,40 @@
+name: 发版
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    name: 编译并发布版本
+    runs-on: ubuntu-latest
+    steps:
+      - name: 准备代码
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: 获取git标签
+        run: git fetch --force --tags
+
+      - name: 准备编译环境
+        uses: actions/setup-go@v3
+        with:
+          go-version: '1.22.4'
+
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      - name: 运行GoReleaser发版
+        uses: goreleaser/goreleaser-action@v2
+        with:
+          version: latest
+          args: release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

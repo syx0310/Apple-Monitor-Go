@@ -1,0 +1,67 @@
+devices:
+  - name: "iPhone 16 Pro JP" # Custom name
+    product_id: "MYN43J/A" # Product ID
+    location: "100-0005" # Zip code or city name(depends on the region)
+    region: "jp" # current support and tested: jp, cn, us, hk
+    query_params:
+      cppart: UNLOCKED_JP # weathers the device is locked or unlocked, e.g. UNLOCKED_JP, UNLOCKED/WW, ATT_IPHONE16PRO
+      mts.0: regular # not sure what it is
+      mts.1: compact # not sure what it is
+      pl: "true" # not sure what it is
+    crontab: "*/3 * * * * *" # crontab expression, check https://crontab.guru/ for more information, current setting is every 3 seconds
+    bark_key: "bark key" # bark key
+    bark_api_url: "https://api.day.app" # bark api url
+    wecom_url: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx # wecom group bot url
+  - name: "iPhone 16 Pro CN"
+    product_id: "MYLX3CH/A"
+    location: "浙江 杭州 上城区"   
+    region: "cn"
+    store_whitelist_keyword: # if configured, only the store name contains the keyword will be checked
+      - 西湖
+      - 静安
+    query_params:
+      cppart: UNLOCKED/WW
+      mts.0: regular
+      mts.1: compact
+      pl: "true"
+    crontab: "*/3 * * * * *" 
+  - name: "iPhone 16 Pro HK"
+    product_id: "MYLN3ZA/A"
+    location: "中環"   
+    region: "hk"
+    query_params:
+      cppart: UNLOCKED/WW
+      mts.0: regular
+      mts.1: compact
+      pl: "true"
+    crontab: "*/3 * * * * *" 
+  - name: "iPhone 16 CN"
+    product_id: "MYF03CH/A"
+    location: 321000
+    region: "cn"
+    query_params:
+      cppart: UNLOCKED/WW
+      mts.0: regular
+      mts.1: compact
+      pl: "true"
+    crontab: "*/3 * * * * *" 
+  - name: "iPhone 16 PRO US"
+    product_id: "MYML3LL/A"
+    location: Ohio, IL
+    region: "us"
+    query_params:
+      cppart: UNLOCKED/US
+      mts.0: regular
+      mts.1: compact
+      pl: "true"
+    crontab: "*/3 * * * * *" 
+  - name: "iPhone 16 PRO US LOCKED"
+    product_id: "MYML3LL/A"
+    location: Ohio, IL
+    region: "us"
+    query_params:
+      cppart: ATT_IPHONE16PRO
+      mts.0: regular
+      mts.1: compact
+      pl: "true"
+    crontab: "*/3 * * * * *" 
