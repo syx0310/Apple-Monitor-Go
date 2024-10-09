@@ -8,7 +8,7 @@
 - Filter monitored stores by keywords (whitelist feature).
 - Supports multiple notification methods:
   - **Bark** (mobile notifications).
-  - **WeChat Work** (corporate notifications).
+  - **WeCom** (corporate notifications).
 - Configurable query parameters and cron jobs for periodic monitoring.
 
 ## Table of Contents
@@ -24,7 +24,7 @@
 ## Installation
 
 1. **Download the binary**  
-   The binary is automatically released through GoReleaser and can be downloaded from the [Releases](https://github.com/your-repo/releases) section.
+   The binary is automatically released through GoReleaser and can be downloaded from the [Releases](https://github.com/syx0310/Apple-Monitor-Go/releases) section.
 
 2. **Build from source**  
    Alternatively, you can build the binary from source:
@@ -54,7 +54,7 @@
 Run the application by executing the binary:
 
 ```bash
-./apple-monitor-go
+./apple-monitor-go run
 ```
 
 The application will start monitoring the configured devices and send notifications when stock is available in the specified stores.
